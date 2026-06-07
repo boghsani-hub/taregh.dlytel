@@ -44,7 +44,7 @@ on:
         type: boolean
         default: false
       clean_google_play:
-        description: 'Clean Google Play folder'
+        description: 'Clean downloads folder'
         required: false
         type: boolean
         default: false
