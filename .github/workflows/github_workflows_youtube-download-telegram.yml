@@ -1,4 +1,4 @@
-name: 📥 YouTube Downloader (Multiple URLs + Telegram)
+name: 📥 YouTube Downloader
 
 on:
   workflow_dispatch:
@@ -7,9 +7,8 @@ on:
         description: "🔗 YouTube URLs (یک URL در هر خط)"
         required: true
         type: string
-        default: |
-          https://www.youtube.com/watch?v=example1
-          https://www.youtube.com/watch?v=example2
+        default: 
+        
       output_format:
         description: "📁 Output Format"
         required: true
@@ -34,7 +33,7 @@ on:
         description: "📦 Max File Size (MB) - 0 for no split"
         required: false
         type: string
-        default: "1800"
+        default: "95"
       upload_method:
         description: "📤 Upload Method"
         required: true
