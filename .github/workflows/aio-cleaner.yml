@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       clean_all:
-        description: 'Clean ALL platforms (telegram, telegram downloader, youtube, x, instagram, website, leecher, google-play, direct, music)'
+        description: 'Clean ALL platforms (telegram, telegram downloader, youtube, x, instagram, website, leecher, downloads, direct, music)'
         required: false
         type: boolean
         default: false
@@ -94,7 +94,7 @@ jobs:
           clean_all = os.environ.get("CLEAN_ALL") == "true"
           platforms = []
           if clean_all:
-              platforms = ["telegram", "telegram-downloader", "youtube", "x", "instagram", "website", "leecher", "google-play", "direct", "music"]
+              platforms = ["telegram", "telegram-downloader", "youtube", "x", "instagram", "website", "leecher", "downloads", "direct", "music"]
           else:
               if os.environ.get("CLEAN_TELEGRAM") == "true":
                   platforms.append("telegram")
@@ -110,8 +110,8 @@ jobs:
                   platforms.append("website")
               if os.environ.get("CLEAN_LEECHER") == "true":
                   platforms.append("leecher")
-              if os.environ.get("CLEAN_GOOGLE_PLAY") == "true":
-                  platforms.append("google-play")
+              if os.environ.get("CLEAN_DOWNLOADS") == "true":
+                  platforms.append("downloads")
               if os.environ.get("CLEAN_DIRECT") == "true":
                   platforms.append("direct")
               if os.environ.get("CLEAN_MUSIC") == "true":
@@ -158,14 +158,14 @@ jobs:
                       cleaned.append("leecher")
                   else:
                       print("ℹ️ leecher: folder not found, nothing to delete")
-              elif platform == "google-play":
-                  folder = Path("google-play")
+              elif platform == "downloads":
+                  folder = Path("downloads")
                   if folder.exists() and folder.is_dir():
                       shutil.rmtree(folder)
-                      print(" Deleted google-play/ folder")
-                      cleaned.append("google-play")
+                      print(" Deleted downloads/ folder")
+                      cleaned.append("downloads")
                   else:
-                      print("ℹ️ google-play: folder not found, nothing to delete")
+                      print("ℹ️ downloads: folder not found, nothing to delete")
               elif platform == "direct":
                   folder = Path("direct")
                   if folder.exists() and folder.is_dir():
@@ -218,8 +218,8 @@ jobs:
                   git add -A telegram/downloader/ 2>/dev/null || true
               elif [ "$p" = "leecher" ]; then
                   git add -A leecher/ 2>/dev/null || true
-              elif [ "$p" = "google-play" ]; then
-                  git add -A google-play/ 2>/dev/null || true
+              elif [ "$p" = "downloads" ]; then
+                  git add -A downloads/ 2>/dev/null || true
               elif [ "$p" = "direct" ]; then
                   git add -A direct/ 2>/dev/null || true
               elif [ "$p" = "music" ]; then
