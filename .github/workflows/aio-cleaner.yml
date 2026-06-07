@@ -82,7 +82,7 @@ jobs:
           CLEAN_INSTAGRAM: ${{ github.event.inputs.clean_instagram }}
           CLEAN_WEBSITE: ${{ github.event.inputs.clean_website }}
           CLEAN_LEECHER: ${{ github.event.inputs.clean_leecher }}
-          CLEAN_GOOGLE_PLAY: ${{ github.event.inputs.clean_google_play }}
+          CLEAN_DOWNLOADS: ${{ github.event.inputs.clean_downloads }}
           CLEAN_DIRECT: ${{ github.event.inputs.clean_direct }}
           CLEAN_MUSIC: ${{ github.event.inputs.clean_music }}
         run: |
